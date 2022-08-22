@@ -48,7 +48,7 @@ async function register(e) {
     if (!image) return alert("Please, add your avatar")
     const url = await uploadImage(image)
     console.log('register url :>> ', url);
-  }
+}
 
   return (
     <>
