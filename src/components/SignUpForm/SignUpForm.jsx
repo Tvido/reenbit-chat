@@ -10,6 +10,20 @@ export const SignUpForm = () => {
       <form action="" className={s.container}>
         <h1 className={s.title}>PLEASE Sign Up</h1>
         <div className={s.inputs}>
+        <div className={s.content}>
+            <input
+              id="formName"
+              type="text"
+              name="name"
+              autoComplete="off"
+              placeholder=" "
+              className={s.input}
+            />
+            <label htmlFor="formName" className={s.label}>
+              * Name
+            </label>
+          </div>
+
           <div className={s.content}>
             <input
               id="formEmail"
