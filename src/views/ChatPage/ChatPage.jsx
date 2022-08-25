@@ -1,13 +1,16 @@
 import React from 'react';
-import { AiOutlineSearch } from 'react-icons/ai'
-import { BiSend } from 'react-icons/bi'
+// import { BiSend } from 'react-icons/bi'
 import s from './ChatPage.module.css';
 
 import { Section } from '../../components/Section/Section';
-import { Message } from '../../components/Message/Message';
 import { DialoguesList } from '../../components/DialoguesList/DialoguesList';
 
 import dialogues from '../../assets/data/dialogues.json';
+import messages from '../../assets/data/messages.json'
+
+import { MessageForm } from '../../components/MessageForm/MessageForm';
+import { SearchForm } from '../../components/SearchForm/SearchForm';
+import { MessageList } from '../../components/MessageList/MessageList';
 
 export const ChatPage = () => {
   return (
@@ -24,24 +27,7 @@ export const ChatPage = () => {
             </div>
 
             <div className={s.chat__search}>
-              <div className={s.inputs}>
-                <div className={s.content}>
-                  <input
-                    required
-                    id="chat"
-                    type="chat"
-                    name="chat"
-                    autoComplete="off"
-                    placeholder=" "
-                    className={s.input}
-                    onChange={() => { }}
-                  />
-
-                  <label htmlFor="chat" className={s.label}>
-                    Search or start new chat <AiOutlineSearch />
-                  </label>
-                </div>
-              </div>
+              <SearchForm />
             </div>
           </div>
 
@@ -63,117 +49,13 @@ export const ChatPage = () => {
           </div>
 
           <div className={s.chat__messages_dialogue}>
-            <Message
-              avatar="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png"
-              text="My text "
-              date="less than a minute"
-              isMe={true}
-            />
-
-            <Message
-              avatar="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png"
-              text="My text "
-              date="less than a minute"
-              isMe={true}
-            />
-
-            <Message
-              avatar="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png"
-              text="My text "
-              date="less than a minute"
-              isMe={true}
-            />
-
-            <Message
-              avatar="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png"
-              text="My text "
-              date="less than a minute"
-              isMe={true}
-            />
-
-            <Message
-              avatar="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png"
-              text="My text "
-              date="less than a minute"
-              isMe={true}
-            />
-
-            <Message
-              avatar="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png"
-              text="My text "
-              date="less than a minute"
-              isMe={true}
-            />
-
-            <Message
-              avatar="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png"
-              text="My text "
-              date="less than a minute"
-              isMe={true}
-            />
-
-            <Message
-              avatar="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png"
-              text="My text "
-              date="less than a minute"
-              isMe={true}
-            />
-
-            <Message
-              avatar="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png"
-              text="My text "
-              date="less than a minute"
-              isMe={true}
-            />
-
-            <Message
-              avatar="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png"
-              text="My text "
-              date="less than a minute"
-              isMe={true}
-            />
-
-            <Message
-              avatar="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png"
-              text="My text "
-              date="less than a minute"
-              isMe={true}
-            />
-
-            <Message
-              avatar="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png"
-              text="My text "
-              date="less than a minute"
-              isMe={true}
-            />
-
-            <Message
-              avatar="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png"
-              text="My text "
-              date="less than a minute"
-              isMe={true}
-            />
+            <div className={s.message__output}>
+              <MessageList items={messages} />
+            </div>
           </div>
 
           <div className={s.chat__messages_input}>
-            <div className={s.inputs}>
-              <div className={s.content}>
-                <input
-                  required
-                  id="chat"
-                  type="chat"
-                  name="chat"
-                  autoComplete="off"
-                  placeholder=" "
-                  className={s.input}
-                  onChange={() => { }}
-                />
-
-                <label htmlFor="chat" className={s.label}>
-                  Type your message <BiSend />
-                </label>
-              </div>
-            </div>
+            <MessageForm />
           </div>
         </div>
       </div>
