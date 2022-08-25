@@ -1,29 +1,24 @@
 import React from 'react'
-import PropTypes from 'prop-types';
-
 import { DialogueItem } from '../DialogueItem/DialogueItem'
 
-export const DialoguesList = ({items = []}) => {
+import s from './DialoguesList.module.css';
+
+import dialogues from '../../assets/data/dialogues.json'
+
+export const DialoguesList = () => {
+  const selectedDialogueIndex = 0
+
   return (
-    <ul>
-      {items.map(item => (
-        <li key={item._id}>
+    <ul className={s.dialogues_list}>
+      {dialogues.map((dialogue, index) => (
+        <li key={dialogue._id}>
           <DialogueItem
-            avatar={item.avatar}
-            user={item.user}
-            message={item.message}
-            date={item.date}
-          />
+            {...dialogue}
+            key={index}
+            isActiveDialogue={ index === selectedDialogueIndex }
+            />
         </li>
       ))}
     </ul>
   )
 }
-
-DialoguesList.propTypes = {
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      _id: PropTypes.string.isRequired,
-    }),
-  ),
-};

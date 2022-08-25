@@ -1,0 +1,63 @@
+.dialogues_list {
+  grid-area: conversation-list;
+  background: #0048AA;
+  overflow-y: scroll;
+}
+
+.dialogues__item {
+  display: grid;
+  grid-template-columns: 40px 1fr max-content;
+  grid-gap: 10px;
+  color: #ddd;
+  font-size: 1.3rem;
+  border-bottom: 1px solid #002C88;
+  padding: 20px 20px 20px 15px;
+}
+
+.dialogues__item.active {
+  background: #002C88;
+}
+
+.dialogues__item:hover {
+  background: #002C88;
+}
+
+.dialogues__item:hover {
+  cursor: pointer;
+}
+
+.dialogues__item > img {
+  grid-row: span 2;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+}
+
+.dialogues__item_info {
+  font-weight: bold;
+  font-size: 16px;
+  color: #555555;
+  padding-left: 5px;
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+.dialogues__item_date {
+  color: #000;
+  white-space: nowrap;
+  font-size: 12px;
+  opacity: .7;
+}
+
+.dialogues__item_message {
+  grid-column: span 2;
+  color: #000;
+  font-size: 14px;
+  opacity: .7;
+  padding-left: 5px;
+  white-space: nowrap;
+  overflow-x: hidden;
+  width: 240px; 
+  text-overflow: ellipsis;
+}
