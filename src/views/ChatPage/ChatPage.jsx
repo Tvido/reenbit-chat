@@ -1,5 +1,4 @@
 import React from 'react';
-// import { BiSend } from 'react-icons/bi'
 import s from './ChatPage.module.css';
 
 import { Section } from '../../components/Section/Section';
@@ -7,13 +6,16 @@ import { DialoguesList } from '../../components/DialoguesList/DialoguesList';
 
 import dialogues from '../../assets/data/dialogues.json';
 import messages from '../../assets/data/messages.json'
+import {selectetTitleByDialogues} from '../../assets/data/selectetTitleByDialogues.js'
 
 import { MessageForm } from '../../components/MessageForm/MessageForm';
 import { SearchForm } from '../../components/SearchForm/SearchForm';
 import { MessageList } from '../../components/MessageList/MessageList';
 import { MessageDialogueTitle } from '../../components/MessageDialogueTitle/MessageDialogueTitle';
 
-export const ChatPage = () => {
+export const ChatPage = (props) => {
+  // const selectetTitleByDialogues = {title: "Chuck Norris"}
+
   return (
     <Section>
       <div className={s.chat}>
@@ -38,12 +40,10 @@ export const ChatPage = () => {
         </div>
 
         <div className={s.chat__messages}>
-          <MessageDialogueTitle />
+          <MessageDialogueTitle selectetTitleByDialogues={selectetTitleByDialogues} />
 
           <div className={s.chat__messages_dialogue}>
-            {/* <div className={s.message__output}> */}
-              <MessageList items={messages} />
-            {/* </div> */}
+            <MessageList items={messages} />
           </div>
 
           <div className={s.chat__messages_input}>
