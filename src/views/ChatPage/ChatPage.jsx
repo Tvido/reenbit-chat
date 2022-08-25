@@ -11,6 +11,7 @@ import messages from '../../assets/data/messages.json'
 import { MessageForm } from '../../components/MessageForm/MessageForm';
 import { SearchForm } from '../../components/SearchForm/SearchForm';
 import { MessageList } from '../../components/MessageList/MessageList';
+import { MessageDialogueTitle } from '../../components/MessageDialogueTitle/MessageDialogueTitle';
 
 export const ChatPage = () => {
   return (
@@ -37,21 +38,12 @@ export const ChatPage = () => {
         </div>
 
         <div className={s.chat__messages}>
-          <div className={s.chat__messages_header}>
-            <div className={s.chat__messages_owner}>
-              <img src="https://angular.io/assets/images/logos/angularjs/AngularJS-Shield.svg" alt="" />
-              <div>
-                <div className={s.chat__messages_owner_name}>Name</div>
-
-                <div className={s.chat__message_owners_status}>Online</div>
-              </div>
-            </div>
-          </div>
+          <MessageDialogueTitle />
 
           <div className={s.chat__messages_dialogue}>
-            <div className={s.message__output}>
+            {/* <div className={s.message__output}> */}
               <MessageList items={messages} />
-            </div>
+            {/* </div> */}
           </div>
 
           <div className={s.chat__messages_input}>

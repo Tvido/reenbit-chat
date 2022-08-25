@@ -7,16 +7,18 @@ import messages from '../../assets/data/messages.json'
 
 export const MessageList = () => {
   return (
-    <ul id="message_list">
-      {messages.map((message, index) => (
-        <li key={message._id}>
-          <MessageItem
-            {...message}
-            key={index}
-            owner={message.owner}
-          />
-        </li>
-      ))}
-    </ul>
+    <div className="message__output">
+      <ul id="message_list">
+        {messages.map((message, index) => (
+          <li key={message._id}>
+            <MessageItem
+              {...message}
+              key={index}
+              owner={message.owner}
+            />
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
