@@ -4,7 +4,7 @@ import { FcPlus } from 'react-icons/fc';
 
 import s from './SignUpForm.module.css';
 
-import ava from '../../assets/img/ava_1.jpg'
+import ava from '../../assets/img/default.jpg'
 
 export const SignUpForm = () => {
   const [image, setImage] = useState(null)
@@ -15,40 +15,40 @@ export const SignUpForm = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
-function validateImg(e) {
-  const file = e.target.files[0]
-  if(file.size > 1000000) {
-    return alert("To big file")
+  function validateImg(e) {
+    const file = e.target.files[0]
+    if (file.size > 1000000) {
+      return alert("To big file")
+    }
+    setImage(file)
+    setPreviewImage(URL.createObjectURL(file))
   }
-  setImage(file)
-  setPreviewImage(URL.createObjectURL(file))
-}
 
-async function uploadImage() {
-  const data = new FormData()
-  data.append('file', image)
-  data.append('upload_preset', 'rk1yl1tw')
-  try {
-    setUploadingImage(true)
-    let result = await fetch("https://api.cloudinary.com/v1_1/tvido/image/upload", {
-      method: 'post',
-      body: data
-    }) 
-    const urlData = await result.json()
-    setUploadingImage(false)
-    return urlData.url
-  } catch(error) {
-    setUploadingImage(false)
-    console.log('uploadImage error :>> ', error);
+  async function uploadImage() {
+    const data = new FormData()
+    data.append('file', image)
+    data.append('upload_preset', 'rk1yl1tw')
+    try {
+      setUploadingImage(true)
+      let result = await fetch("https://api.cloudinary.com/v1_1/tvido/image/upload", {
+        method: 'post',
+        body: data
+      })
+      const urlData = await result.json()
+      setUploadingImage(false)
+      return urlData.url
+    } catch (error) {
+      setUploadingImage(false)
+      console.log('uploadImage error :>> ', error);
+    }
   }
-}
 
-async function register(e) {
+  async function register(e) {
     e.preventDefault()
     if (!image) return alert("Please, add your avatar")
     const url = await uploadImage(image)
     console.log('register url :>> ', url);
-}
+  }
 
   return (
     <>
@@ -56,14 +56,15 @@ async function register(e) {
         <h1 className={s.title}>PLEASE Sign Up</h1>
 
         <div className={s.avatar}>
-          <img className={s.signup} src={previewImage || ava } alt="" />
+          <img className={s.signup} src={previewImage || ava} alt="" />
           <label htmlFor="uploadImg" className={s.uploadImg}><FcPlus /></label>
-          <input type="file" hidden id="uploadImg" accept="image/png image/jpg image/jpeg" onChange={validateImg} />
+          <input required type="file" hidden id="uploadImg" accept="image/png image/jpg image/jpeg" onChange={validateImg} />
         </div>
 
         <div className={s.inputs}>
           <div className={s.content}>
             <input
+              required
               id="formName"
               type="text"
               name="name"
@@ -80,6 +81,7 @@ async function register(e) {
 
           <div className={s.content}>
             <input
+              required
               id="formEmail"
               type="email"
               name="email"
@@ -96,6 +98,7 @@ async function register(e) {
 
           <div className={s.content}>
             <input
+              required
               id="formPass"
               type="password"
               name="password"
@@ -113,7 +116,7 @@ async function register(e) {
 
         <div className="">
           <button type="submit" id="button" className="">
-            { uploadingImage ? "Await..." : "Sign Up" }
+            {uploadingImage ? "Await..." : "Sign Up"}
             <FiSend />
           </button>
         </div>
