@@ -7,6 +7,7 @@ import messages from '../../assets/data/messages.json'
 
 export const MessageList = () => {
   return (
+    
     <div className="message__output">
       <ul id="message_list">
         {messages.map((message, index) => (

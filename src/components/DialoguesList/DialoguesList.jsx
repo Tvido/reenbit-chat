@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react';
 import { DialogueItem } from '../DialogueItem/DialogueItem'
 
 import s from './DialoguesList.module.css';
@@ -6,7 +7,13 @@ import s from './DialoguesList.module.css';
 import dialogues from '../../assets/data/dialogues.json'
 
 export const DialoguesList = () => {
-  const selectedDialogueIndex = 0
+  const [dialogueId, setDialogueId] = useState(null)
+
+const onHandleDialogue = (id) => {
+  setDialogueId(id)
+  console.log('index', id)
+}
+
 
   return (
     <ul className={s.dialogues_list}>
@@ -15,7 +22,8 @@ export const DialoguesList = () => {
           <DialogueItem
             {...dialogue}
             key={index}
-            isActiveDialogue={ index === selectedDialogueIndex }
+            onClick={onHandleDialogue}
+            isActiveDialogue={ dialogue._id === dialogueId }
             />
         </li>
       ))}

@@ -48,12 +48,5 @@
 
 .chat__messages_dialogue {
   padding: 20px 15px;
-
   overflow-y: auto;
-}
-
-.chat__messages_input {
-  padding: 20px 15px;
-  border-top: 1px solid grey;
-  background: rgb(223, 223, 223);
 }
