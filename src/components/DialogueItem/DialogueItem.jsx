@@ -1,38 +1,29 @@
 import React from 'react'
-import PropTypes from 'prop-types';
-
+import classNames from 'classnames';
 import './DialogueItem.css';
 
 import defaultAvatar from '../../assets/img/chuck_norris.jpg';
 
 export const DialogueItem = ({
-  avatar = defaultAvatar,
-  user,
-  message,
-  date,
-  isActiveDialogue
+  dialogue,
+  isActiveDialogue,
+  onSelectDialogue
 }) => {
-  let classes = "dialogues__item"
 
-  if (isActiveDialogue) {
-    classes += " active"
-  }
+  const classes = classNames('dialogues__item', {
+    'active': isActiveDialogue
+  });
 
   return (
-    <div className={classes}>
-      <img src={avatar || defaultAvatar} alt={user} />
-      <div className="dialogues__item_info">{user}</div>
-      <div className="dialogues__item_date">{date}</div>
+    <div className={classes} onClick={() => {
+      onSelectDialogue(dialogue)
+    }}>
+      <img src={dialogue.avatar || defaultAvatar} alt={dialogue.user} />
+      <div className="dialogues__item_info">{dialogue.user}</div>
+      <div className="dialogues__item_date">{dialogue.date}</div>
       <div className="dialogues__item_message">
-        {message}
+        {dialogue.message}
       </div>
     </div>
   )
 }
-
-DialogueItem.propTypes = {
-  avatar: PropTypes.string,
-  user: PropTypes.string,
-  message: PropTypes.string,
-  date: PropTypes.string,
-};

@@ -1,28 +1,23 @@
 import React from 'react';
-
+import classNames from 'classnames';
 import './MessageItem.css';
 
-import defaultAvatar from '../../assets/img/chuck_norris.jpg';
+export const MessageItem = ({ message, owner }) => {
+  const classes = classNames('chat__messages_dialogue', {
+    'my_message': owner,
+    'other_message': !owner
+  });
 
-export const MessageItem = ({ user, avatar, message, date, owner }) => {
-  let classes = "message"
-  let image = null
-
-  if (owner) {
-    classes += " my_message"
-  } else {
-    classes += " other_message"
-    image = <img src={avatar || defaultAvatar} alt={user} />
-  }
+  const showAvatar = <img src={message.avatar} alt={message.user} />
 
   return (
     <div className={classes}>
       <div className="message_content">
-        {image}
+        {showAvatar}
         <div className="message_text">
-          {message}
+          {message.message}
         </div>
-        <div className="message_time">{date}</div>
+        <div className="message_time">{message.date}</div>
       </div>
     </div>
   );

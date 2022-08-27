@@ -1,7 +1,9 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import s from './ChatPage.module.css';
 import { useSelector } from 'react-redux'
+
+import s from './ChatPage.module.css';
+
+import { selectDialogues } from '../../redux/dialogues/dialogues';
 import { selectetTitleByDialogues } from '../../assets/data/selectetTitleByDialogues.js'
 
 import { Section } from '../../components/Section/Section';
@@ -11,11 +13,7 @@ import { MessageForm } from '../../components/MessageForm/MessageForm';
 import { SearchForm } from '../../components/SearchForm/SearchForm';
 import { MessageDialogueTitle } from '../../components/MessageDialogueTitle/MessageDialogueTitle';
 
-import { dialogueChanged } from '../../redux/actions';
-import { selectDialogues } from '../../redux/dialogues/dialogues';
-
 export const ChatPage = () => {
-
   const dialogues = useSelector(selectDialogues)
 
   return (
@@ -35,7 +33,8 @@ export const ChatPage = () => {
           </div>
 
           <DialoguesList
-            selectedDialoguesId={MessageDialogueTitle._id}
+            isActiveDialogue={dialogues._id}
+            selectedDialogueId={dialogues}
             dialogues={dialogues}
           />
         </div>
@@ -44,7 +43,7 @@ export const ChatPage = () => {
           <MessageDialogueTitle selectetTitleByDialogues={selectetTitleByDialogues} />
 
           <div className={s.chat__messages_dialogue}>
-            <MessageList items={dialogues.messages} />
+            <MessageList />
           </div>
 
           <MessageForm />
@@ -54,19 +53,3 @@ export const ChatPage = () => {
 
   );
 };
-
-const mapStateToProps = state => {
-  return {
-    dialogues: state.dialogues.dialogues,
-    selectetTitleByDialogues: state.dialogues.selectetTitleByDialogues
-  };
-};
-
-const mapDispatchToProps = dispatch => ({
-  dialogueChanged: dialogueId => dispatch(dialogueChanged(dialogueId)),
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ChatPage);
