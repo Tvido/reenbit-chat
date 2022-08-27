@@ -1,5 +1,3 @@
-
-
 .chat__messages_owner {
   display: flex;
   padding: 10px 15px;
@@ -14,10 +12,6 @@
   height: 40px;
   margin-right: 15px;
 }
-
-.chat__messages_owner_name{}
-
-.chat__message_owners_status{}
 
 .chat__messages_dialogue {
   padding: 20px 15px;

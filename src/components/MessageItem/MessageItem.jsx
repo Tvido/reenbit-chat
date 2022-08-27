@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+
 import './MessageItem.css';
 
 export const MessageItem = ({ message, owner }) => {
@@ -14,10 +15,12 @@ export const MessageItem = ({ message, owner }) => {
     <div className={classes}>
       <div className="message_content">
         {showAvatar}
-        <div className="message_text">
-          {message.message}
+        <div>
+          <div className="message_text">
+            {message.message}
+          </div>
+          <div className="message_time">{message.date}</div>
         </div>
-        <div className="message_time">{message.date}</div>
       </div>
     </div>
   );

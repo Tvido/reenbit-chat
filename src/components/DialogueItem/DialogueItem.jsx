@@ -1,8 +1,9 @@
 import React from 'react'
 import classNames from 'classnames';
+
 import './DialogueItem.css';
 
-import defaultAvatar from '../../assets/img/chuck_norris.jpg';
+import defaultAvatar from '../../assets/img/default.jpg';
 
 export const DialogueItem = ({
   dialogue,

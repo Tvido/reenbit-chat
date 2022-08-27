@@ -4,7 +4,8 @@ import { useSelector } from 'react-redux'
 import s from './ChatPage.module.css';
 
 import { selectDialogues } from '../../redux/dialogues/dialogues';
-import { selectetTitleByDialogues } from '../../assets/data/selectetTitleByDialogues.js'
+
+import defaultAvatar from '../../assets/img/default.jpg';
 
 import { Section } from '../../components/Section/Section';
 import { DialoguesList } from '../../components/DialoguesList/DialoguesList';
@@ -23,10 +24,8 @@ export const ChatPage = () => {
           <div className={s.chat__wrapper}>
             <div className={s.chat__dialogues_header}>
               <div className={s.chat__dialogues_owner}>
-                <img src="https://angular.io/assets/images/logos/angularjs/AngularJS-Shield.svg" alt="" />
+                <img src={defaultAvatar} alt="" />
               </div>
-
-              <span>Owner</span>
             </div>
 
             <SearchForm />
@@ -40,7 +39,7 @@ export const ChatPage = () => {
         </div>
 
         <div className={s.chat__messages}>
-          <MessageDialogueTitle selectetTitleByDialogues={selectetTitleByDialogues} />
+          <MessageDialogueTitle />
 
           <div className={s.chat__messages_dialogue}>
             <MessageList />

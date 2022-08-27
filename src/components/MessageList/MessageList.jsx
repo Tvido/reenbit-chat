@@ -7,7 +7,7 @@ import { selectActiveMessages } from '../../redux/dialogues/dialogues';
 export const MessageList = () => {
   const messages = useSelector(selectActiveMessages);
 
-  const messageItems = messages?.map((message, index) => {
+  const messageItems = messages?.map((message) => {
     return <MessageItem
       key={message._id}
       owner={message.owner}
@@ -15,9 +15,10 @@ export const MessageList = () => {
   });
 
   return (
-    <div className="message__output-message-list">
-      {messageItems}
+    <div className="message__list">
+      <div className="message__output">
+        {messageItems}
+      </div>
     </div>
   );
-
 };

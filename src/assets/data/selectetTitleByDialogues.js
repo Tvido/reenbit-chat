@@ -1,1 +1,0 @@
-export const selectetTitleByDialogues = {avatar : "https://angular.io/assets/images/logos/angularjs/AngularJS-Shield.svg", title: "Chuck Norris", status: "Online"}

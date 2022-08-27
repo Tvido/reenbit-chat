@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectFirstDialogue, selectActiveId, setActiveId } from '../../redux/dialogues/dialogues';
-import { DialogueItem } from '../DialogueItem/DialogueItem';
+
 import s from './DialoguesList.module.css';
+
+import { DialogueItem } from '../DialogueItem/DialogueItem';
 
 export const DialoguesList = ({ dialogues }) => {
   const dispatch = useDispatch()
@@ -32,5 +34,4 @@ export const DialoguesList = ({ dialogues }) => {
       {dialogueItems}
     </div>
   );
-
 }

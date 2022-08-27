@@ -1,4 +1,4 @@
-#message_list {
+#message__list {
   grid-area: message_list;
   display: flex;
   flex-direction: column-reverse;
@@ -9,4 +9,3 @@
   height: 80vh;
   overflow-y: auto;
 }
-

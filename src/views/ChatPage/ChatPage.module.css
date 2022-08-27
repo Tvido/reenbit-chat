@@ -1,15 +1,17 @@
-
-
 .chat {
-  display: flex;
+  display: block;
   background: #fff;
   margin: 0 auto;
 }
 
+@media screen and (min-width: 768px) {
+  .chat {
+    display: flex;
+  }
+}
+
 .chat__dialogues {
   border-right: 1px solid grey;
-  /* padding: 10px 15px; */
-  
 }
 
 .chat__wrapper{
@@ -21,9 +23,6 @@
   display: flex;
   justify-content: space-between;
   padding: 15px;
-}
-
-.chat__dialogues_owner {
 }
 
 .chat__dialogues_owner img{
@@ -39,14 +38,5 @@
 
 .chat__dialogues_list {
   height: 80vh;
-  overflow-y: auto;
-}
-
-.chat__messages{
-  flex: 1;
-}
-
-.chat__messages_dialogue {
-  padding: 20px 15px;
   overflow-y: auto;
 }

@@ -12,9 +12,9 @@ function App() {
       <NavBar />
 
       <Routes>
-        <Route path="/" element={<HomePage />} exact="true"></Route>
-        <Route path="/auth" element={<AuthPage />}></Route>
-        <Route path="/chat" element={<ChatPage />}></Route>
+        <Route path="/" restricted element={<HomePage />} exact="true"></Route>
+        <Route path="/auth" restricted element={<AuthPage />}></Route>
+        <Route path="/chat" restricted element={<ChatPage />}></Route>
       </Routes>
     </>
   );
