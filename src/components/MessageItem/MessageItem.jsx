@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import { format } from 'date-fns'
 
 import './MessageItem.css';
 
@@ -19,7 +20,7 @@ export const MessageItem = ({ message, owner }) => {
           <div className="message_text">
             {message.message}
           </div>
-          <div className="message_time">{message.date}</div>
+          <div className="message_time">{format(new Date(message.date), 'MM/dd/yy, HH:mm ')}</div>
         </div>
       </div>
     </div>

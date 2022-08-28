@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux'
 
 import s from './ChatPage.module.css';
 
-import { selectDialogues } from '../../redux/dialogues/dialogues';
+import { selectBySearch } from '../../redux/dialogues/dialogues';
 
 import defaultAvatar from '../../assets/img/default.jpg';
 
@@ -15,7 +15,9 @@ import { SearchForm } from '../../components/SearchForm/SearchForm';
 import { MessageDialogueTitle } from '../../components/MessageDialogueTitle/MessageDialogueTitle';
 
 export const ChatPage = () => {
-  const dialogues = useSelector(selectDialogues)
+  const [filter, setFilter] = useState("")
+
+  const dialogues = useSelector(selectBySearch(filter))
 
   return (
     <Section>
@@ -28,7 +30,7 @@ export const ChatPage = () => {
               </div>
             </div>
 
-            <SearchForm />
+            <SearchForm onInputSearch={setFilter} />
           </div>
 
           <DialoguesList

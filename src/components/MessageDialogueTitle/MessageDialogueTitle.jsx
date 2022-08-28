@@ -19,7 +19,5 @@ export const MessageDialogueTitle = () => {
         </div>
       </div>
     </div>
-
-
   )
 }

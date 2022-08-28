@@ -1,5 +1,6 @@
 import React from 'react'
 import classNames from 'classnames';
+import { format } from 'date-fns'
 
 import './DialogueItem.css';
 
@@ -21,9 +22,9 @@ export const DialogueItem = ({
     }}>
       <img src={dialogue.avatar || defaultAvatar} alt={dialogue.user} />
       <div className="dialogues__item_info">{dialogue.user}</div>
-      <div className="dialogues__item_date">{dialogue.date}</div>
+      <div className="dialogues__item_date">{format(new Date(dialogue.date), 'MM/dd/yy, HH:mm ')}</div>
       <div className="dialogues__item_message">
-        {dialogue.message}
+        {dialogue.recentMessage}
       </div>
     </div>
   )

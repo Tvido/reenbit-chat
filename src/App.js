@@ -9,13 +9,14 @@ import { ChatPage } from './views/ChatPage/ChatPage';
 function App() {
   return (
     <>
-      <NavBar />
+    <ChatPage />
+      {/* <NavBar />
 
       <Routes>
         <Route path="/" restricted element={<HomePage />} exact="true"></Route>
         <Route path="/auth" restricted element={<AuthPage />}></Route>
         <Route path="/chat" restricted element={<ChatPage />}></Route>
-      </Routes>
+      </Routes> */}
     </>
   );
 }

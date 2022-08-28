@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import axios from 'axios'
-import { addMessage, getActiveOponent } from '../../redux/dialogues/dialogues';
 
 import s from './MessageForm.module.css';
+
+import { addMessage, getActiveOponent } from '../../redux/dialogues/dialogues';
 
 export const MessageForm = () => {
   const dispatch = useDispatch()

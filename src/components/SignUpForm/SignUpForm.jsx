@@ -39,7 +39,6 @@ export const SignUpForm = () => {
       return urlData.url
     } catch (error) {
       setUploadingImage(false)
-      console.log('uploadImage error :>> ', error);
     }
   }
 
@@ -47,7 +46,7 @@ export const SignUpForm = () => {
     e.preventDefault()
     if (!image) return alert("Please, add your avatar")
     const url = await uploadImage(image)
-    console.log('register url :>> ', url);
+    // console.log('register url :>> ', url);
   }
 
   return (

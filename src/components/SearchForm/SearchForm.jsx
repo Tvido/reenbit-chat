@@ -1,11 +1,16 @@
-import React from 'react'
+import React from 'react';
 
 import s from './SearchForm.module.css';
 
-export const SearchForm = () => {
+export const SearchForm = ({ onInputSearch }) => {
+
+  const handleChange = (e) => {
+    e.preventDefault()
+    onInputSearch(e.target.value)
+  }
+
   return (
     <div className={s.chat__search}>
-
       <div className={s.inputs}>
         <div className={s.content}>
           <input
@@ -16,7 +21,7 @@ export const SearchForm = () => {
             autoComplete="off"
             placeholder=" "
             className={s.input}
-            onChange={() => { }}
+            onInput={handleChange}
           />
 
           <label htmlFor="chat" className={s.label}>
@@ -25,6 +30,5 @@ export const SearchForm = () => {
         </div>
       </div>
     </div>
-
   )
 }
